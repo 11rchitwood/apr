@@ -38,5 +38,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(apr)
-apr_shape(Titanic)
+arr <- array(seq_len(12), c(3, 2, 2))
+apr_shape(arr)
+apr_reshape(arr, c(2, 3, 2))
 ```
