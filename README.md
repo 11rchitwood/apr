@@ -9,9 +9,16 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/apr)](https://CRAN.R-project.org/package=apr)
+[![R-CMD-check](https://github.com/11rchitwood/apr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/11rchitwood/apr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/11rchitwood/apr/graph/badge.svg)](https://app.codecov.io/gh/11rchitwood/apr)
 <!-- badges: end -->
 
-The goal of apr is to …
+The goal of apr is to bring the goodness of
+[APL](https://en.wikipedia.org/wiki/APL_(programming_language)) to R. R
+provides multidimensional arrays out of the box, but many of the table
+stakes for array programming are missing. This package seeks to fill
+that gap.
 
 ## Installation
 
