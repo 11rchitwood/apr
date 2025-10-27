@@ -32,6 +32,66 @@ You can install the development version of apr like so:
 pak::pak("11rchitwood/apr")
 ```
 
+## APL Glyph Implementation Plan
+
+The following table lists all APL glyphs and their corresponding monadic and dyadic function names in the `apr` package:
+
+| Category | Glyph | Monadic Name | Dyadic Name |
+|----------|-------|--------------|-------------|
+| **Shape** | ⍴ | `apr_shape` | `apr_reshape` |
+| **Shape** | ⍳ | `apr_iota` | `apr_index_of` |
+| **Shape** | ↑ | `apr_first` | `apr_take` |
+| **Shape** | ↓ | — | `apr_drop` |
+| **Structural** | ⍉ | `apr_transpose` | `apr_transpose_axes` |
+| **Structural** | ⌽ | `apr_reverse` | `apr_rotate` |
+| **Structural** | ⊖ | `apr_reverse_first` | `apr_rotate_first` |
+| **Structural** | , | `apr_ravel` | `apr_catenate` |
+| **Structural** | ⍪ | `apr_table` | `apr_catenate_first` |
+| **Reduction/Scan** | / | — | `apr_reduce` |
+| **Reduction/Scan** | ⌿ | — | `apr_reduce_first` |
+| **Reduction/Scan** | \\ | `apr_expand` | `apr_scan` |
+| **Reduction/Scan** | ⍀ | `apr_expand_first` | `apr_scan_first` |
+| **Set Operations** | ∊ | `apr_enlist` | `apr_membership` |
+| **Set Operations** | ∩ | — | `apr_intersection` |
+| **Set Operations** | ∪ | `apr_unique` | `apr_union` |
+| **Sorting** | ⍋ | `apr_grade_up` | `apr_bins_up` |
+| **Sorting** | ⍒ | `apr_grade_down` | `apr_bins_down` |
+| **Nesting** | ⊂ | `apr_enclose` | `apr_partition` |
+| **Nesting** | ⊃ | `apr_disclose` | `apr_pick` |
+| **Nesting** | ≡ | `apr_depth` | `apr_match` |
+| **Nesting** | ≢ | `apr_tally` | `apr_not_match` |
+| **Encoding** | ⊥ | — | `apr_decode` |
+| **Encoding** | ⊤ | — | `apr_encode` |
+| **Arithmetic** | + | `apr_conjugate` | `apr_plus` |
+| **Arithmetic** | − | `apr_negate` | `apr_minus` |
+| **Arithmetic** | × | `apr_signum` | `apr_times` |
+| **Arithmetic** | ÷ | `apr_reciprocal` | `apr_divide` |
+| **Arithmetic** | \| | `apr_abs` | `apr_mod` |
+| **Arithmetic** | * | `apr_exp` | `apr_power` |
+| **Mathematical** | ⌈ | `apr_ceiling` | `apr_max` |
+| **Mathematical** | ⌊ | `apr_floor` | `apr_min` |
+| **Mathematical** | ○ | `apr_pi_times` | `apr_circular` |
+| **Mathematical** | ⍟ | `apr_ln` | `apr_log` |
+| **Mathematical** | ? | `apr_roll` | `apr_deal` |
+| **Matrix** | ⌹ | `apr_matrix_inverse` | `apr_matrix_divide` |
+| **Comparison** | < | — | `apr_less` |
+| **Comparison** | ≤ | — | `apr_less_equal` |
+| **Comparison** | = | — | `apr_equal` |
+| **Comparison** | ≥ | — | `apr_greater_equal` |
+| **Comparison** | > | — | `apr_greater` |
+| **Comparison** | ≠ | — | `apr_not_equal` |
+| **Logic** | ∧ | — | `apr_lcm` |
+| **Logic** | ∨ | — | `apr_gcd` |
+| **Logic** | ⍱ | — | `apr_nand` |
+| **Logic** | ⍲ | — | `apr_nor` |
+| **Selection** | ⊣ | `apr_identity` | `apr_left` |
+| **Selection** | ⊢ | `apr_identity` | `apr_right` |
+| **Selection** | ⍸ | `apr_where` | `apr_interval_index` |
+| **Formatting** | ⍎ | `apr_execute` | — |
+| **Formatting** | ⍕ | `apr_format` | `apr_format_precision` |
+
+*Note: "—" indicates that the glyph does not have a standard monadic or dyadic form in APL.*
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
