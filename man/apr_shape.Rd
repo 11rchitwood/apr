@@ -6,9 +6,6 @@
 \usage{
 apr_shape()
 }
-\arguments{
-\item{x}{an array}
-}
 \value{
 an integer vector
 }
