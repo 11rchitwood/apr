@@ -1,7 +1,5 @@
 #' Retreive the shape of an array
 #'
-#' @param x an array
-#'
 #' @return an integer vector
 #' @export
 apr_shape <- dim
@@ -26,7 +24,7 @@ apr_reshape <- function(x, value) {
 #' @return a vector
 #'
 #' @examples
-#' rotate(1:12, 3)
+#' apr_rotate(1:12, 3)
 #'
 #' @export
 apr_rotate <- function(x, k) {

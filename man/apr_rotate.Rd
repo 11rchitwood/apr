@@ -18,6 +18,6 @@ a vector
 Rotate a vector
 }
 \examples{
-rotate(1:12, 3)
+apr_rotate(1:12, 3)
 
 }
