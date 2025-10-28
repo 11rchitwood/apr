@@ -32,7 +32,10 @@ test_that("apr_iota generates multi-dimensional index arrays", {
 
 test_that("apr_index_of finds first occurrence", {
   # Simple vector case
-  expect_equal(apr_index_of(c("A", "B", "C", "D", "E"), c("A", "C", "E")), c(1, 3, 5))
+  expect_equal(
+    apr_index_of(c("A", "B", "C", "D", "E"), c("A", "C", "E")),
+    c(1, 3, 5)
+  )
   expect_equal(apr_index_of(1:5, c(3, 1, 5)), c(3, 1, 5))
 
   # Element not found
