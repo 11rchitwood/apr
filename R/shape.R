@@ -45,7 +45,7 @@ apr_iota <- function(x) {
     # Reshape into array: each position contains its index vector
     result <- array(t(idx_mat), dim = c(n_dims, dims))
     # Permute dimensions so that the last dimension is the index vector
-    result <- aperm(result, c(2:(n_dims+1), 1))
+    result <- aperm(result, c(2:(n_dims + 1), 1))
     result
   }
 }
