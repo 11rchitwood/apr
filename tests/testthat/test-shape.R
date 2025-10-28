@@ -50,7 +50,10 @@ test_that("apr_index_of handles different data types", {
   expect_equal(apr_index_of(c(1.5, 2.5, 3.5), c(2.5, 1.5)), c(2, 1))
 
   # Character
-  expect_equal(apr_index_of(c("apple", "banana", "cherry"), c("banana", "apple")), c(2, 1))
+  expect_equal(
+    apr_index_of(c("apple", "banana", "cherry"), c("banana", "apple")),
+    c(2, 1)
+  )
 
   # Logical
   expect_equal(apr_index_of(c(TRUE, FALSE, TRUE), c(FALSE, TRUE)), c(2, 1))
