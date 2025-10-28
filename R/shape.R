@@ -83,10 +83,14 @@ apr_index_of <- function(x, y) {
   y_vec <- as.vector(y)
 
   # Find first occurrence of each element of y in x
-  result <- vapply(y_vec, function(elem) {
-    idx <- which(x_vec == elem)[1]
-    if (is.na(idx)) length(x_vec) + 1L else idx
-  }, integer(1))
+  result <- vapply(
+    y_vec,
+    function(elem) {
+      idx <- which(x_vec == elem)[1]
+      if (is.na(idx)) length(x_vec) + 1L else idx
+    },
+    integer(1)
+  )
 
   # Preserve the shape of y
   if (!is.null(dim(y))) {
