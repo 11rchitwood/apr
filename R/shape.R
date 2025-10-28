@@ -36,27 +36,16 @@ apr_iota <- function(x) {
     seq_len(x)
   } else {
     # Multi-dimensional case: generate array of index combinations
-    # Create an array where each position contains its indices
     dims <- as.integer(x)
     n_dims <- length(dims)
-    total_elements <- prod(dims)
-
-    # Create result array with an extra dimension for the index vector
-    result <- array(dim = c(dims, n_dims))
-
-    # Fill in the indices for each position
-    for (i in seq_len(total_elements)) {
-      # Get the indices for this position
-      idx <- arrayInd(i, dims)
-
-      # Store each component of the index vector
-      for (d in seq_len(n_dims)) {
-        # Build the indexing expression dynamically
-        indices <- c(as.list(idx), list(d))
-        result[i + (d - 1) * total_elements] <- idx[d]
-      }
-    }
-
+    # Generate all index combinations
+    idx_grid <- do.call(expand.grid, lapply(dims, seq_len))
+    # Convert to matrix for easier manipulation
+    idx_mat <- as.matrix(idx_grid)
+    # Reshape into array: each position contains its index vector
+    result <- array(t(idx_mat), dim = c(n_dims, dims))
+    # Permute dimensions so that the last dimension is the index vector
+    result <- aperm(result, c(2:(n_dims+1), 1))
     result
   }
 }
