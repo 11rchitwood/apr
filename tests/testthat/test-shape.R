@@ -34,7 +34,7 @@ test_that("apr_index_of finds first occurrence", {
   # Simple vector case
   expect_equal(
     apr_index_of(c("A", "B", "C", "D", "E"), c("A", "C", "E")),
-    c(1, 3, 5)
+    c(A = 1, C = 3, E = 5)
   )
   expect_equal(apr_index_of(1:5, c(3, 1, 5)), c(3, 1, 5))
 
@@ -52,7 +52,7 @@ test_that("apr_index_of handles different data types", {
   # Character
   expect_equal(
     apr_index_of(c("apple", "banana", "cherry"), c("banana", "apple")),
-    c(2, 1)
+    c(banana = 2, apple = 1)
   )
 
   # Logical
