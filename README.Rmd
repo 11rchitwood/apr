@@ -91,14 +91,3 @@ The following table lists all APL glyphs and their corresponding monadic and dya
 | **Formatting** | ⍕ | `apr_format` | `apr_format_precision` |
 
 *Note: "—" indicates that the glyph does not have a standard monadic or dyadic form in APL.*
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-library(apr)
-arr <- array(seq_len(12), c(3, 2, 2))
-apr_shape(arr)
-apr_reshape(arr, c(2, 3, 2))
-```

@@ -89,26 +89,3 @@ and dyadic function names in the `apr` package:
 
 *Note: “—” indicates that the glyph does not have a standard monadic or
 dyadic form in APL.*
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(apr)
-arr <- array(seq_len(12), c(3, 2, 2))
-apr_shape(arr)
-#> [1] 3 2 2
-apr_reshape(arr, c(2, 3, 2))
-#> , , 1
-#> 
-#>      [,1] [,2] [,3]
-#> [1,]    1    3    5
-#> [2,]    2    4    6
-#> 
-#> , , 2
-#> 
-#>      [,1] [,2] [,3]
-#> [1,]    7    9   11
-#> [2,]    8   10   12
-```
