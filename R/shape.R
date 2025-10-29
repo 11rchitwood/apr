@@ -1,21 +1,3 @@
-#' Retreive the shape of an array
-#'
-#' @return an integer vector
-#' @export
-apr_shape <- dim
-
-#' Change the shape of an array
-#'
-#' @param x an array
-#' @param value an integer vector
-#'
-#' @return an array
-#' @export
-apr_reshape <- function(x, value) {
-  dim(x) <- value
-  x
-}
-
 #' Generate index vector or array
 #'
 #' The monadic form of APL's iota (⍳). Generates indices from 1 to n for a
