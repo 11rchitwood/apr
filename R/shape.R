@@ -24,8 +24,10 @@ apr_shape <- dim
 #' apr_reshape(x, c(2, 2, 3))  # Returns a 2x2x3 array
 apr_reshape <- function(x, value) {
   stopifnot(length(x) == prod(value))
-  array(x, dim = value)
+  dim(x) <- value
+  x
 }
+
 #' Generate index vector or array
 #'
 #' The monadic form of APL's iota (⍳). Generates indices from 1 to n for a
