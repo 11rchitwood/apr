@@ -43,6 +43,45 @@ apr_transpose_axes <- function(x, perm) {
   aperm(x, perm)
 }
 
+#' Reverse along the last axis
+#'
+#' Reverses the elements along the last axis of an array. For a vector, this
+#' reverses the entire vector. For a matrix, it reverses each row. For higher
+#' dimensional arrays, it reverses along the last dimension.
+#'
+#' @param x an array or vector
+#'
+#' @return an array with the last axis reversed
+#' @export
+#'
+#' @examples
+#' # Vector reverse
+#' apr_reverse(1:5)  # Returns c(5, 4, 3, 2, 1)
+#'
+#' # Matrix: reverse each row
+#' m <- matrix(1:6, nrow = 2, ncol = 3)
+#' apr_reverse(m)
+#'
+#' # 3D array: reverse along last axis
+#' arr <- array(1:24, c(2, 3, 4))
+#' apr_reverse(arr)
+apr_reverse <- function(x) {
+  dims <- dim(x)
+
+  if (is.null(dims)) {
+    # For vectors, simply reverse
+    return(rev(x))
+  }
+
+  # For arrays, reverse along the last axis
+  ndim <- length(dims)
+  indices <- rep(list(quote(expr = )), ndim)
+  indices[[ndim]] <- rev(seq_len(dims[ndim]))
+
+  # Use do.call to handle variable number of dimensions
+  do.call(`[`, c(list(x), indices, drop = FALSE))
+}
+
 #' Rotate a vector
 #'
 #' @param x a vector
