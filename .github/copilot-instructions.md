@@ -1,4 +1,18 @@
-# Copilot Intsructions
+# Copilot Instructions
+
+## Error Handling
+
+Prefer using `stopifnot()` for error handling where applicable.
+
+```r
+# Good
+stopifnot(length(x) == prod(value))
+
+# Bad
+if (length(x) != prod(value)) {
+  stop("New dimensions must match the number of elements in x")
+}
+```
 
 ## Test-Driven Development
 
