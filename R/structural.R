@@ -75,8 +75,15 @@ apr_reverse <- function(x) {
 
   # For arrays, reverse along the last axis
   ndim <- length(dims)
-  indices <- rep(list(quote(expr = )), ndim)
-  indices[[ndim]] <- rev(seq_len(dims[ndim]))
+
+  # Build index list: all dimensions get full range except last which is reversed
+  indices <- lapply(seq_len(ndim), function(i) {
+    if (i == ndim) {
+      rev(seq_len(dims[i]))
+    } else {
+      TRUE  # Select all elements along this dimension
+    }
+  })
 
   # Use do.call to handle variable number of dimensions
   do.call(`[`, c(list(x), indices, drop = FALSE))
@@ -95,8 +102,15 @@ apr_reverse <- function(x) {
 #' @export
 apr_rotate <- function(x, k) {
   n <- length(x)
-  x <- rev(x)
-  x[1:k] <- rev(x[1:k])
-  x[(k + 1):n] <- rev(x[(k + 1):n])
-  x
+
+  # Handle edge cases
+  if (n == 0) return(x)
+  if (k == 0) return(x)
+
+  # Normalize k to be within range [0, n)
+  k <- k %% n
+  if (k == 0) return(x)
+
+  # Perform rotation: move last k elements to the front
+  c(x[(n - k + 1):n], x[1:(n - k)])
 }

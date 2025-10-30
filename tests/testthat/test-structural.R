@@ -206,16 +206,19 @@ test_that("apr_rotate works with basic vectors", {
   # Rotate by 1
   expect_equal(apr_rotate(1:5, 1), c(5, 1, 2, 3, 4))
 
-  # Rotate by 0 (should reverse and then reverse back, resulting in original)
-  # Actually, with the current implementation, k=0 would cause an error
-  # Let's test other cases
+  # Rotate by 0 (should return unchanged)
+  expect_equal(apr_rotate(1:5, 0), 1:5)
 
-  # Rotate by full length (should return original in reverse)
+  # Rotate by full length (should return original unchanged)
   expect_equal(apr_rotate(1:5, 5), c(1, 2, 3, 4, 5))
 
   # Rotate small vector
   expect_equal(apr_rotate(1:3, 1), c(3, 1, 2))
   expect_equal(apr_rotate(1:3, 2), c(2, 3, 1))
+
+  # Rotate by more than length (should wrap around)
+  expect_equal(apr_rotate(1:5, 6), c(5, 1, 2, 3, 4))  # 6 %% 5 = 1
+  expect_equal(apr_rotate(1:5, 7), c(4, 5, 1, 2, 3))  # 7 %% 5 = 2
 })
 
 test_that("apr_rotate edge cases", {
@@ -224,4 +227,7 @@ test_that("apr_rotate edge cases", {
 
   # Two elements
   expect_equal(apr_rotate(c(1, 2), 1), c(2, 1))
+
+  # Empty vector
+  expect_equal(apr_rotate(integer(0), 1), integer(0))
 })
