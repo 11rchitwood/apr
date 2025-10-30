@@ -3,6 +3,7 @@ test_that("shape functions work", {
   arr <- array(x, c(3, 2, 2))
   expect_equal(apr_shape(arr), c(3, 2, 2))
   expect_equal(apr_reshape(arr, c(2, 3, 2)), array(x, dim = c(2L, 3L, 2L)))
+  expect_error(apr_reshape(arr, c(2, 2, 2)))
 })
 
 test_that("apr_iota generates index vectors", {
