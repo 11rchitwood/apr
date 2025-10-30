@@ -1,3 +1,33 @@
+#' Retrieve the shape of an array
+#'
+#' @param x an array or object
+#'
+#' @return an integer vector representing the dimensions
+#' @export
+#'
+#' @examples
+#' arr <- array(1:12, c(3, 2, 2))
+#' apr_shape(arr)  # Returns c(3, 2, 2)
+apr_shape <- dim
+
+#' Change the shape of an array
+#'
+#' @param x an array or vector
+#' @param value an integer vector representing the new dimensions
+#'
+#' @return an array with the specified dimensions
+#' @export
+#'
+#' @examples
+#' x <- 1:12
+#' apr_reshape(x, c(3, 4))  # Returns a 3x4 matrix
+#' apr_reshape(x, c(2, 2, 3))  # Returns a 2x2x3 array
+apr_reshape <- function(x, value) {
+  stopifnot(length(x) == prod(value))
+  dim(x) <- value
+  x
+}
+
 #' Generate index vector or array
 #'
 #' The monadic form of APL's iota (⍳). Generates indices from 1 to n for a

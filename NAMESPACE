@@ -2,4 +2,6 @@
 
 export(apr_index_of)
 export(apr_iota)
+export(apr_reshape)
 export(apr_rotate)
+export(apr_shape)
