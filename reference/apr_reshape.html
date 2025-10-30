@@ -46,18 +46,47 @@
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>an array</p></dd>
+<dd><p>an array or vector</p></dd>
 
 
 <dt id="arg-value">value<a class="anchor" aria-label="anchor" href="#arg-value"></a></dt>
-<dd><p>an integer vector</p></dd>
+<dd><p>an integer vector representing the new dimensions</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>an array</p>
+    <p>an array with the specified dimensions</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">12</span></span></span>
+<span class="r-in"><span><span class="fu">apr_reshape</span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>  <span class="co"># Returns a 3x4 matrix</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3] [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1    4    7   10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    2    5    8   11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]    3    6    9   12</span>
+<span class="r-in"><span><span class="fu">apr_reshape</span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>  <span class="co"># Returns a 2x2x3 array</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1    3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    2    4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> , , 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    5    7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    6    8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> , , 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    9   11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]   10   12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
