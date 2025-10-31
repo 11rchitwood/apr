@@ -166,7 +166,7 @@ test_that("apr_reverse works with 2D matrices", {
 })
 
 test_that("apr_reverse works with 3D arrays", {
-  # 2x3x4 array - reverses along last axis (4th dimension)
+  # 2x3x4 array - reverses along last axis (3rd dimension)
   arr <- array(1:24, c(2, 3, 4))
   result <- apr_reverse(arr)
 
@@ -184,7 +184,7 @@ test_that("apr_reverse works with 3D arrays", {
 })
 
 test_that("apr_reverse works with 4D arrays", {
-  # 2x3x4x5 array - reverses along last axis (5th dimension)
+  # 2x3x4x5 array - reverses along last axis (4th dimension)
   arr_4d <- array(1:120, c(2, 3, 4, 5))
   result_4d <- apr_reverse(arr_4d)
 
