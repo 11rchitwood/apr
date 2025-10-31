@@ -81,7 +81,7 @@ apr_reverse <- function(x) {
     if (i == ndim) {
       rev(seq_len(dims[i]))
     } else {
-      TRUE  # Select all elements along this dimension
+      TRUE # Select all elements along this dimension
     }
   })
 
@@ -104,12 +104,18 @@ apr_rotate <- function(x, k) {
   n <- length(x)
 
   # Handle edge cases
-  if (n == 0) return(x)
-  if (k == 0) return(x)
+  if (n == 0) {
+    return(x)
+  }
+  if (k == 0) {
+    return(x)
+  }
 
   # Normalize k to be within range [0, n)
   k <- k %% n
-  if (k == 0) return(x)
+  if (k == 0) {
+    return(x)
+  }
 
   # Perform rotation: move last k elements to the front
   c(x[(n - k + 1):n], x[1:(n - k)])

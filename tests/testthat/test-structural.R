@@ -217,8 +217,8 @@ test_that("apr_rotate works with basic vectors", {
   expect_equal(apr_rotate(1:3, 2), c(2, 3, 1))
 
   # Rotate by more than length (should wrap around)
-  expect_equal(apr_rotate(1:5, 6), c(5, 1, 2, 3, 4))  # 6 %% 5 = 1
-  expect_equal(apr_rotate(1:5, 7), c(4, 5, 1, 2, 3))  # 7 %% 5 = 2
+  expect_equal(apr_rotate(1:5, 6), c(5, 1, 2, 3, 4)) # 6 %% 5 = 1
+  expect_equal(apr_rotate(1:5, 7), c(4, 5, 1, 2, 3)) # 7 %% 5 = 2
 })
 
 test_that("apr_rotate edge cases", {
