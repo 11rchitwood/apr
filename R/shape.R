@@ -1,7 +1,5 @@
 #' Retrieve the shape of an array
 #'
-#' @param x an array or object
-#'
 #' @return an integer vector representing the dimensions
 #' @export
 #'
