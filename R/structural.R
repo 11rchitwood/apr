@@ -195,39 +195,6 @@ apr_rotate.default <- function(x, k, along = NULL) {
 }
 
 #' @export
-apr_rotate.matrix <- function(x, k, along = NULL) {
-  # Determine which axis to rotate
-  if (is.null(along)) {
-    along <- 2 # Default to last axis (columns for matrices)
-  }
-
-  # Validate along parameter
-  if (along < 1 || along > 2) {
-    stop("'along' must be between 1 and 2 (number of dimensions)")
-  }
-
-  # Normalize k for the dimension we're rotating
-  dims <- dim(x)
-  k <- k %% dims[along]
-  if (k == 0) {
-    return(x)
-  }
-
-  # Rotate along the specified axis
-  if (along == 1) {
-    # Rotate rows
-    n <- dims[1]
-    new_indices <- c((n - k + 1):n, 1:(n - k))
-    x[new_indices, , drop = FALSE]
-  } else {
-    # Rotate columns
-    n <- dims[2]
-    new_indices <- c((n - k + 1):n, 1:(n - k))
-    x[, new_indices, drop = FALSE]
-  }
-}
-
-#' @export
 apr_rotate.array <- function(x, k, along = NULL) {
   # Determine which axis to rotate
   dims <- dim(x)
