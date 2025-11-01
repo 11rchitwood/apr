@@ -3,6 +3,7 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^cran-comments\.md$
+^\.claude$
 ^\.github$
 ^codecov\.yml$
 ^[.]?air[.]toml$

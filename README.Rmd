@@ -38,19 +38,15 @@ The following sections group APL glyphs into categories and then list their corr
 
 ### Shape
 
-[Source](R/shape.R) | [Tests](tests/testthat/test-shape.R)
-
-- ⍴ (`apr_shape`, `apr_reshape`)
-- ⍳ (`apr_iota`, `apr_index_of`)
+- ⍴ (`apr_shape` [[R](R/apr_shape.R)|[test](tests/testthat/test-apr_shape.R)], `apr_reshape` [[R](R/apr_reshape.R)|[test](tests/testthat/test-apr_reshape.R)])
+- ⍳ (`apr_iota` [[R](R/apr_iota.R)|[test](tests/testthat/test-apr_iota.R)], `apr_index_of` [[R](R/apr_index_of.R)|[test](tests/testthat/test-apr_index_of.R)])
 - ↑ (`apr_first`, `apr_take`)
 - ↓ (—, `apr_drop`)
 
 ### Structural
 
-[Source](R/structural.R) | [Tests](tests/testthat/test-structural.R)
-
-- ⍉ (`apr_transpose`, `apr_transpose_axes`)
-- ⌽ (`apr_reverse`, `apr_rotate`)
+- ⍉ (`apr_transpose` [[R](R/apr_transpose.R)|[test](tests/testthat/test-apr_transpose.R)], `apr_transpose_axes` [[R](R/apr_transpose_axes.R)|[test](tests/testthat/test-apr_transpose_axes.R)])
+- ⌽ (`apr_reverse` [[R](R/apr_reverse.R)|[test](tests/testthat/test-apr_reverse.R)], `apr_rotate` [[R](R/apr_rotate.R)|[test](tests/testthat/test-apr_rotate.R)])
 - ⊖ (`apr_reverse_first`, `apr_rotate_first`)
 - , (`apr_ravel`, `apr_catenate`)
 - ⍪ (`apr_table`, `apr_catenate_first`)
