@@ -1,5 +1,11 @@
 # Copilot Instructions
 
+## Version Control
+
+1. **Commit Often**: Make small, frequent commits with clear messages. Use the present tense, imperative mood ("Add feature" not " I added feature").
+2. **Branching**: Use branches for new features or bug fixes. Merge back to the main branch when complete.
+3. **Pull Requests**: Use pull requests for code reviews and discussions before merging changes.
+
 ## Error Handling
 
 Prefer using `stopifnot()` for error handling where applicable.
