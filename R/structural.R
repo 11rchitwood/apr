@@ -84,12 +84,15 @@ apr_reverse <- function(x, along = NULL) {
   # Determine which axis to reverse
   ndim <- length(dims)
   if (is.null(along)) {
-    along <- ndim  # Default to last axis
+    along <- ndim # Default to last axis
   }
 
   # Validate along parameter
   if (along < 1 || along > ndim) {
-    stop(sprintf("'along' must be between 1 and %d (number of dimensions)", ndim))
+    stop(sprintf(
+      "'along' must be between 1 and %d (number of dimensions)",
+      ndim
+    ))
   }
 
   # Build index list: all dimensions get full range except specified which is reversed
@@ -140,12 +143,18 @@ apr_rotate <- function(x, k, along = NULL) {
   # Helper function to rotate a vector
   rotate_vector <- function(v, k) {
     n <- length(v)
-    if (n == 0) return(v)
-    if (k == 0) return(v)
+    if (n == 0) {
+      return(v)
+    }
+    if (k == 0) {
+      return(v)
+    }
 
     # Normalize k to be within range [0, n)
     k <- k %% n
-    if (k == 0) return(v)
+    if (k == 0) {
+      return(v)
+    }
 
     # Perform rotation: move last k elements to the front
     c(v[(n - k + 1):n], v[1:(n - k)])
@@ -161,17 +170,22 @@ apr_rotate <- function(x, k, along = NULL) {
   # Determine which axis to rotate
   ndim <- length(dims)
   if (is.null(along)) {
-    along <- ndim  # Default to last axis
+    along <- ndim # Default to last axis
   }
 
   # Validate along parameter
   if (along < 1 || along > ndim) {
-    stop(sprintf("'along' must be between 1 and %d (number of dimensions)", ndim))
+    stop(sprintf(
+      "'along' must be between 1 and %d (number of dimensions)",
+      ndim
+    ))
   }
 
   # Normalize k for the dimension we're rotating
   k <- k %% dims[along]
-  if (k == 0) return(x)
+  if (k == 0) {
+    return(x)
+  }
 
   # Build index list for rotation along specified axis
   indices <- lapply(seq_len(ndim), function(i) {
@@ -180,7 +194,7 @@ apr_rotate <- function(x, k, along = NULL) {
       n <- dims[i]
       c((n - k + 1):n, 1:(n - k))
     } else {
-      TRUE  # Select all elements along this dimension
+      TRUE # Select all elements along this dimension
     }
   })
 

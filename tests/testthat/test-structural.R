@@ -149,11 +149,21 @@ test_that("apr_reverse works with 2D matrices", {
   expect_equal(apr_reverse(m), expected)
 
   # Basic matrix - reverses along first axis (flips rows vertically)
-  expected_vertical <- matrix(c(4, 5, 6, 1, 2, 3), nrow = 2, ncol = 3, byrow = TRUE)
+  expected_vertical <- matrix(
+    c(4, 5, 6, 1, 2, 3),
+    nrow = 2,
+    ncol = 3,
+    byrow = TRUE
+  )
   expect_equal(apr_reverse(m, along = 1), expected_vertical)
 
   # Basic matrix - reverses along second axis (flips columns horizontally, same as default)
-  expected_horizontal <- matrix(c(3, 2, 1, 6, 5, 4), nrow = 2, ncol = 3, byrow = TRUE)
+  expected_horizontal <- matrix(
+    c(3, 2, 1, 6, 5, 4),
+    nrow = 2,
+    ncol = 3,
+    byrow = TRUE
+  )
   expect_equal(apr_reverse(m, along = 2), expected_horizontal)
 
   # Square matrix
@@ -280,7 +290,12 @@ test_that("apr_rotate works with 2D matrices", {
 
   # Rotate along last axis (default) - rotates each row
   result_default <- apr_rotate(m, 1)
-  expected_default <- matrix(c(3, 1, 2, 6, 4, 5), nrow = 2, ncol = 3, byrow = TRUE)
+  expected_default <- matrix(
+    c(3, 1, 2, 6, 4, 5),
+    nrow = 2,
+    ncol = 3,
+    byrow = TRUE
+  )
   expect_equal(result_default, expected_default)
 
   # Rotate along second axis (same as default)
@@ -289,7 +304,12 @@ test_that("apr_rotate works with 2D matrices", {
 
   # Rotate along first axis - rotates the rows themselves
   result_axis1 <- apr_rotate(m, 1, along = 1)
-  expected_axis1 <- matrix(c(4, 5, 6, 1, 2, 3), nrow = 2, ncol = 3, byrow = TRUE)
+  expected_axis1 <- matrix(
+    c(4, 5, 6, 1, 2, 3),
+    nrow = 2,
+    ncol = 3,
+    byrow = TRUE
+  )
   expect_equal(result_axis1, expected_axis1)
 
   # Rotate by 2 along last axis
@@ -300,7 +320,12 @@ test_that("apr_rotate works with 2D matrices", {
   # Square matrix
   sq <- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
   result_sq <- apr_rotate(sq, 1)
-  expected_sq <- matrix(c(3, 1, 2, 6, 4, 5, 9, 7, 8), nrow = 3, ncol = 3, byrow = TRUE)
+  expected_sq <- matrix(
+    c(3, 1, 2, 6, 4, 5, 9, 7, 8),
+    nrow = 3,
+    ncol = 3,
+    byrow = TRUE
+  )
   expect_equal(result_sq, expected_sq)
 })
 
