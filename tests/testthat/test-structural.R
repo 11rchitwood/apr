@@ -148,9 +148,13 @@ test_that("apr_reverse works with 2D matrices", {
   expected <- matrix(c(3, 2, 1, 6, 5, 4), nrow = 2, ncol = 3, byrow = TRUE)
   expect_equal(apr_reverse(m), expected)
 
-  # Basic matrix - reverses each column
-  expected <- matrix(c(4, 5, 6, 1, 2, 3), nrow = 2, ncol = 3, byrow = TRUE)
-  expect_equal(apr_reverse(m, along = 2), expected)
+  # Basic matrix - reverses along first axis (flips rows vertically)
+  expected_vertical <- matrix(c(4, 5, 6, 1, 2, 3), nrow = 2, ncol = 3, byrow = TRUE)
+  expect_equal(apr_reverse(m, along = 1), expected_vertical)
+
+  # Basic matrix - reverses along second axis (flips columns horizontally, same as default)
+  expected_horizontal <- matrix(c(3, 2, 1, 6, 5, 4), nrow = 2, ncol = 3, byrow = TRUE)
+  expect_equal(apr_reverse(m, along = 2), expected_horizontal)
 
   # Square matrix
   sq <- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
@@ -170,7 +174,7 @@ test_that("apr_reverse works with 2D matrices", {
 })
 
 test_that("apr_reverse works with 3D arrays", {
-  # 2x3x4 array - reverses along last axis (3rd dimension)
+  # 2x3x4 array - reverses along last axis (3rd dimension) by default
   arr <- array(1:24, c(2, 3, 4))
   result <- apr_reverse(arr)
 
@@ -185,6 +189,23 @@ test_that("apr_reverse works with 3D arrays", {
   expect_equal(result[1, 1, 1], arr[1, 1, 4])
   expect_equal(result[1, 1, 4], arr[1, 1, 1])
   expect_equal(result[2, 3, 1], arr[2, 3, 4])
+
+  # Reverse along first axis
+  result1 <- apr_reverse(arr, along = 1)
+  expect_equal(dim(result1), c(2, 3, 4))
+  expect_equal(result1[1, , ], arr[2, , ])
+  expect_equal(result1[2, , ], arr[1, , ])
+
+  # Reverse along second axis
+  result2 <- apr_reverse(arr, along = 2)
+  expect_equal(dim(result2), c(2, 3, 4))
+  expect_equal(result2[, 1, ], arr[, 3, ])
+  expect_equal(result2[, 2, ], arr[, 2, ])
+  expect_equal(result2[, 3, ], arr[, 1, ])
+
+  # Reverse along third axis (same as default)
+  result3 <- apr_reverse(arr, along = 3)
+  expect_equal(result3, result)
 })
 
 test_that("apr_reverse works with 4D arrays", {
@@ -201,6 +222,19 @@ test_that("apr_reverse works with 4D arrays", {
   # Check corner values
   expect_equal(result_4d[1, 1, 1, 1], arr_4d[1, 1, 1, 5])
   expect_equal(result_4d[2, 3, 4, 5], arr_4d[2, 3, 4, 1])
+})
+
+test_that("apr_reverse validates along parameter", {
+  m <- matrix(1:6, nrow = 2, ncol = 3)
+
+  # along must be within valid range
+  expect_error(apr_reverse(m, along = 0), "'along' must be between")
+  expect_error(apr_reverse(m, along = 3), "'along' must be between")
+  expect_error(apr_reverse(m, along = -1), "'along' must be between")
+
+  # Valid along values should work
+  expect_no_error(apr_reverse(m, along = 1))
+  expect_no_error(apr_reverse(m, along = 2))
 })
 
 test_that("apr_rotate works with basic vectors", {
