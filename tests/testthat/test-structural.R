@@ -421,8 +421,8 @@ test_that("apr_reverse and apr_rotate work correctly with aperm approach", {
   expect_equal(result2[, 3, ], arr[, 1, ])
 
   result3 <- apr_reverse(arr, along = 3)
-  expect_equal(result3[, , 1], arr[, , 4])
-  expect_equal(result3[, , 4], arr[, , 1])
+  expect_equal(result3[,, 1], arr[,, 4])
+  expect_equal(result3[,, 4], arr[,, 1])
 
   # Test rotate along different axes
   rot1 <- apr_rotate(arr, 1, along = 1)

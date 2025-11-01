@@ -87,7 +87,7 @@ apr_reverse.default <- function(x, along = NULL) {
 apr_reverse.matrix <- function(x, along = NULL) {
   # Determine which axis to reverse
   if (is.null(along)) {
-    along <- 2  # Default to last axis (columns for matrices)
+    along <- 2 # Default to last axis (columns for matrices)
   }
 
   # Validate along parameter
@@ -114,7 +114,7 @@ apr_reverse.array <- function(x, along = NULL) {
   ndim <- length(dims)
 
   if (is.null(along)) {
-    along <- ndim  # Default to last axis
+    along <- ndim # Default to last axis
   }
 
   # Validate along parameter
@@ -205,7 +205,7 @@ apr_rotate.default <- function(x, k, along = NULL) {
 apr_rotate.matrix <- function(x, k, along = NULL) {
   # Determine which axis to rotate
   if (is.null(along)) {
-    along <- 2  # Default to last axis (columns for matrices)
+    along <- 2 # Default to last axis (columns for matrices)
   }
 
   # Validate along parameter
@@ -241,7 +241,7 @@ apr_rotate.array <- function(x, k, along = NULL) {
   ndim <- length(dims)
 
   if (is.null(along)) {
-    along <- ndim  # Default to last axis
+    along <- ndim # Default to last axis
   }
 
   # Validate along parameter
