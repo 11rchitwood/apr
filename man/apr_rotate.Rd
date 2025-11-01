@@ -2,22 +2,41 @@
 % Please edit documentation in R/structural.R
 \name{apr_rotate}
 \alias{apr_rotate}
-\title{Rotate a vector}
+\title{Rotate along a specified axis}
 \usage{
-apr_rotate(x, k)
+apr_rotate(x, k, along = NULL)
 }
 \arguments{
-\item{x}{a vector}
+\item{x}{an array or vector}
 
-\item{k}{an integer, the position to rotate}
+\item{k}{an integer, the number of positions to rotate}
+
+\item{along}{an integer specifying which axis to rotate along (default: last axis)}
 }
 \value{
-a vector
+an array with the specified axis rotated
 }
 \description{
-Rotate a vector
+Rotates elements along a specified axis of an array. For a vector, this rotates
+the entire vector by k positions. For arrays, you can specify which axis to rotate.
+By default, rotates along the last axis. This is similar to APL's bracket
+notation \verb{k⌽[I]X} which rotates X by k positions along axis I.
 }
 \examples{
-apr_rotate(1:12, 3)
+# Vector rotation
+apr_rotate(1:12, 3)  # Rotate by 3 positions
 
+# Matrix: rotate along last axis (default, rotates each row)
+m <- matrix(1:6, nrow = 2, ncol = 3, byrow = TRUE)
+apr_rotate(m, 1)
+
+# Matrix: rotate along first axis (rotates the rows themselves)
+apr_rotate(m, 1, along = 1)
+
+# 3D array: rotate along last axis
+arr <- array(1:24, c(2, 3, 4))
+apr_rotate(arr, 2)
+
+# 3D array: rotate along second axis
+apr_rotate(arr, 1, along = 2)
 }

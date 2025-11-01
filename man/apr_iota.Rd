@@ -14,8 +14,7 @@ For a scalar n, returns 1:n. For a vector shape, returns an array
 where each element contains the indices at that position.
 }
 \description{
-The monadic form of APL's iota (⍳). Generates indices from 1 to n for a
-scalar, or an array of index combinations for a vector shape.
+Generates indices from 1 to n for a scalar, or an array of index combinations for a vector shape.
 }
 \examples{
 apr_iota(5)  # Returns 1:5

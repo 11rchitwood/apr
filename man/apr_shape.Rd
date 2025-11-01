@@ -4,10 +4,7 @@
 \alias{apr_shape}
 \title{Retrieve the shape of an array}
 \usage{
-apr_shape(x)
-}
-\arguments{
-\item{x}{an array or object}
+apr_shape()
 }
 \value{
 an integer vector representing the dimensions

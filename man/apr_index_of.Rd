@@ -2,7 +2,8 @@
 % Please edit documentation in R/shape.R
 \name{apr_index_of}
 \alias{apr_index_of}
-\title{Find index of first occurrence}
+\title{Find index of first occurrence
+Finds the index of the first occurrence of each element in the right argument within the left argument.}
 \usage{
 apr_index_of(x, y)
 }
@@ -17,8 +18,8 @@ the first occurrence of each element in x. Elements not found return
 length(x) + 1.
 }
 \description{
-The dyadic form of APL's iota (⍳). Finds the index of the first occurrence
-of each element in the right argument within the left argument.
+Find index of first occurrence
+Finds the index of the first occurrence of each element in the right argument within the left argument.
 }
 \examples{
 apr_index_of(c("A", "B", "C", "D", "E"), c("A", "C", "E"))  # Returns c(1, 3, 5)
