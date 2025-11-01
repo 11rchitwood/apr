@@ -19,7 +19,8 @@ an array with the specified axis rotated
 \description{
 Rotates elements along a specified axis of an array. For a vector, this rotates
 the entire vector by k positions. For arrays, you can specify which axis to rotate.
-By default, rotates along the last axis.
+By default, rotates along the last axis. This is similar to APL's bracket
+notation \verb{k⌽[I]X} which rotates X by k positions along axis I.
 }
 \examples{
 # Vector rotation

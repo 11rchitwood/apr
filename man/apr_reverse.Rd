@@ -17,7 +17,8 @@ an array with the specified axis reversed
 \description{
 Reverses the elements along a specified axis of an array. For a vector, this
 reverses the entire vector. For arrays, you can specify which axis to reverse.
-By default, reverses along the last axis.
+By default, reverses along the last axis. This is similar to APL's bracket
+notation \verb{⌽[K]} which reverses along axis K.
 }
 \examples{
 # Vector reverse
