@@ -47,8 +47,7 @@ apr_transpose_axes <- function(x, perm) {
 #'
 #' Reverses the elements along a specified axis of an array. For a vector, this
 #' reverses the entire vector. For arrays, you can specify which axis to reverse.
-#' By default, reverses along the last axis. This is similar to APL's bracket
-#' notation `⌽[K]` which reverses along axis K.
+#' By default, reverses along the last axis.
 #'
 #' @param x an array or vector
 #' @param along an integer specifying which axis to reverse along (default: last axis)
@@ -142,8 +141,7 @@ apr_reverse.array <- function(x, along = NULL) {
 #'
 #' Rotates elements along a specified axis of an array. For a vector, this rotates
 #' the entire vector by k positions. For arrays, you can specify which axis to rotate.
-#' By default, rotates along the last axis. This is similar to APL's bracket
-#' notation `k⌽[I]X` which rotates X by k positions along axis I.
+#' By default, rotates along the last axis.
 #'
 #' @param x an array or vector
 #' @param k an integer, the number of positions to rotate

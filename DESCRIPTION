@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Ryan", "Chitwood", , "chitwoodrw@icloud.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0255-5603"))
-Description: Functions and utilities for working arrays in R. Inspired by APL.
+Description: Functions and utilities for working with arrays in R. Inspired by APL.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0)

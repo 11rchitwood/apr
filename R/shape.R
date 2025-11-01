@@ -28,8 +28,7 @@ apr_reshape <- function(x, value) {
 
 #' Generate index vector or array
 #'
-#' The monadic form of APL's iota (⍳). Generates indices from 1 to n for a
-#' scalar, or an array of index combinations for a vector shape.
+#' Generates indices from 1 to n for a scalar, or an array of index combinations for a vector shape.
 #'
 #' @param x an integer scalar or vector representing the shape
 #'
@@ -61,9 +60,7 @@ apr_iota <- function(x) {
 }
 
 #' Find index of first occurrence
-#'
-#' The dyadic form of APL's iota (⍳). Finds the index of the first occurrence
-#' of each element in the right argument within the left argument.
+#' Finds the index of the first occurrence of each element in the right argument within the left argument.
 #'
 #' @param x the haystack (left argument)
 #' @param y the needle (right argument)
