@@ -269,3 +269,79 @@ test_that("apr_rotate edge cases", {
   # Empty vector
   expect_equal(apr_rotate(integer(0), 1), integer(0))
 })
+
+test_that("apr_rotate works with 2D matrices", {
+  # Create a test matrix
+  m <- matrix(1:6, nrow = 2, ncol = 3, byrow = TRUE)
+  # m is:
+  #   [,1] [,2] [,3]
+  # [1,]    1    2    3
+  # [2,]    4    5    6
+
+  # Rotate along last axis (default) - rotates each row
+  result_default <- apr_rotate(m, 1)
+  expected_default <- matrix(c(3, 1, 2, 6, 4, 5), nrow = 2, ncol = 3, byrow = TRUE)
+  expect_equal(result_default, expected_default)
+
+  # Rotate along second axis (same as default)
+  result_axis2 <- apr_rotate(m, 1, along = 2)
+  expect_equal(result_axis2, expected_default)
+
+  # Rotate along first axis - rotates the rows themselves
+  result_axis1 <- apr_rotate(m, 1, along = 1)
+  expected_axis1 <- matrix(c(4, 5, 6, 1, 2, 3), nrow = 2, ncol = 3, byrow = TRUE)
+  expect_equal(result_axis1, expected_axis1)
+
+  # Rotate by 2 along last axis
+  result_2 <- apr_rotate(m, 2)
+  expected_2 <- matrix(c(2, 3, 1, 5, 6, 4), nrow = 2, ncol = 3, byrow = TRUE)
+  expect_equal(result_2, expected_2)
+
+  # Square matrix
+  sq <- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
+  result_sq <- apr_rotate(sq, 1)
+  expected_sq <- matrix(c(3, 1, 2, 6, 4, 5, 9, 7, 8), nrow = 3, ncol = 3, byrow = TRUE)
+  expect_equal(result_sq, expected_sq)
+})
+
+test_that("apr_rotate works with 3D arrays", {
+  # 2x3x4 array
+  arr <- array(1:24, c(2, 3, 4))
+
+  # Rotate along last axis (default)
+  result_default <- apr_rotate(arr, 1)
+  expect_equal(dim(result_default), c(2, 3, 4))
+  # Check a specific slice
+  expect_equal(result_default[1, 1, ], c(4, 1, 2, 3))
+
+  # Rotate along first axis
+  result_axis1 <- apr_rotate(arr, 1, along = 1)
+  expect_equal(dim(result_axis1), c(2, 3, 4))
+  expect_equal(result_axis1[1, , ], arr[2, , ])
+  expect_equal(result_axis1[2, , ], arr[1, , ])
+
+  # Rotate along second axis
+  result_axis2 <- apr_rotate(arr, 1, along = 2)
+  expect_equal(dim(result_axis2), c(2, 3, 4))
+  expect_equal(result_axis2[, 1, ], arr[, 3, ])
+  expect_equal(result_axis2[, 2, ], arr[, 1, ])
+  expect_equal(result_axis2[, 3, ], arr[, 2, ])
+
+  # Rotate along third axis by 2
+  result_axis3 <- apr_rotate(arr, 2, along = 3)
+  expect_equal(dim(result_axis3), c(2, 3, 4))
+  expect_equal(result_axis3[1, 1, ], c(3, 4, 1, 2))
+})
+
+test_that("apr_rotate validates along parameter", {
+  m <- matrix(1:6, nrow = 2, ncol = 3)
+
+  # along must be within valid range
+  expect_error(apr_rotate(m, 1, along = 0), "'along' must be between")
+  expect_error(apr_rotate(m, 1, along = 3), "'along' must be between")
+  expect_error(apr_rotate(m, 1, along = -1), "'along' must be between")
+
+  # Valid along values should work
+  expect_no_error(apr_rotate(m, 1, along = 1))
+  expect_no_error(apr_rotate(m, 1, along = 2))
+})
