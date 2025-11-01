@@ -336,26 +336,22 @@ test_that("apr_rotate works with 3D arrays", {
   # Rotate along last axis (default)
   result_default <- apr_rotate(arr, 1)
   expect_equal(dim(result_default), c(2, 3, 4))
-  # Check a specific slice
-  expect_equal(result_default[1, 1, ], c(4, 1, 2, 3))
+  expect_equal(result_default, arr[,, c(4, 1, 2, 3)])
+
+  # Rotate by 2
+  result_by2 <- apr_rotate(arr, 2)
+  expect_equal(dim(result_by2), c(2, 3, 4))
+  expect_equal(result_by2, arr[,, c(3, 4, 1, 2)])
 
   # Rotate along first axis
   result_axis1 <- apr_rotate(arr, 1, along = 1)
   expect_equal(dim(result_axis1), c(2, 3, 4))
-  expect_equal(result_axis1[1, , ], arr[2, , ])
-  expect_equal(result_axis1[2, , ], arr[1, , ])
+  expect_equal(result_axis1, arr[c(2, 1), , ])
 
   # Rotate along second axis
   result_axis2 <- apr_rotate(arr, 1, along = 2)
   expect_equal(dim(result_axis2), c(2, 3, 4))
-  expect_equal(result_axis2[, 1, ], arr[, 3, ])
-  expect_equal(result_axis2[, 2, ], arr[, 1, ])
-  expect_equal(result_axis2[, 3, ], arr[, 2, ])
-
-  # Rotate along third axis by 2
-  result_axis3 <- apr_rotate(arr, 2, along = 3)
-  expect_equal(dim(result_axis3), c(2, 3, 4))
-  expect_equal(result_axis3[1, 1, ], c(3, 4, 1, 2))
+  expect_equal(result_axis2, arr[, c(3, 1, 2), ])
 })
 
 test_that("apr_rotate validates along parameter", {
