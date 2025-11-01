@@ -74,17 +74,47 @@ apr_transpose_axes <- function(x, perm) {
 #' # 3D array: reverse along second axis
 #' apr_reverse(arr, along = 2)
 apr_reverse <- function(x, along = NULL) {
-  dims <- dim(x)
+  UseMethod("apr_reverse")
+}
 
-  if (is.null(dims)) {
-    # For vectors, simply reverse
-    return(rev(x))
+#' @export
+apr_reverse.default <- function(x, along = NULL) {
+  # For vectors, simply reverse
+  rev(x)
+}
+
+#' @export
+apr_reverse.matrix <- function(x, along = NULL) {
+  # Determine which axis to reverse
+  if (is.null(along)) {
+    along <- 2  # Default to last axis (columns for matrices)
   }
 
+  # Validate along parameter
+  if (along < 1 || along > 2) {
+    stop("'along' must be between 1 and 2 (number of dimensions)")
+  }
+
+  # Reverse along the specified axis
+  if (along == 1) {
+    # Reverse rows
+    dims <- dim(x)
+    x[rev(seq_len(dims[1])), , drop = FALSE]
+  } else {
+    # Reverse columns
+    dims <- dim(x)
+    x[, rev(seq_len(dims[2])), drop = FALSE]
+  }
+}
+
+#' @export
+apr_reverse.array <- function(x, along = NULL) {
   # Determine which axis to reverse
+  dims <- dim(x)
   ndim <- length(dims)
+
   if (is.null(along)) {
-    along <- ndim # Default to last axis
+    along <- ndim  # Default to last axis
   }
 
   # Validate along parameter
@@ -100,7 +130,7 @@ apr_reverse <- function(x, along = NULL) {
     if (i == along) {
       rev(seq_len(dims[i]))
     } else {
-      TRUE # Select all elements along this dimension
+      TRUE  # Select all elements along this dimension
     }
   })
 
@@ -140,37 +170,71 @@ apr_reverse <- function(x, along = NULL) {
 #' # 3D array: rotate along second axis
 #' apr_rotate(arr, 1, along = 2)
 apr_rotate <- function(x, k, along = NULL) {
-  # Helper function to rotate a vector
-  rotate_vector <- function(v, k) {
-    n <- length(v)
-    if (n == 0) {
-      return(v)
-    }
-    if (k == 0) {
-      return(v)
-    }
+  UseMethod("apr_rotate")
+}
 
-    # Normalize k to be within range [0, n)
-    k <- k %% n
-    if (k == 0) {
-      return(v)
-    }
-
-    # Perform rotation: move last k elements to the front
-    c(v[(n - k + 1):n], v[1:(n - k)])
+#' @export
+apr_rotate.default <- function(x, k, along = NULL) {
+  # For vectors
+  n <- length(x)
+  if (n == 0) {
+    return(x)
+  }
+  if (k == 0) {
+    return(x)
   }
 
-  dims <- dim(x)
-
-  # Handle vectors
-  if (is.null(dims)) {
-    return(rotate_vector(x, k))
+  # Normalize k to be within range [0, n)
+  k <- k %% n
+  if (k == 0) {
+    return(x)
   }
 
+  # Perform rotation: move last k elements to the front
+  c(x[(n - k + 1):n], x[1:(n - k)])
+}
+
+#' @export
+apr_rotate.matrix <- function(x, k, along = NULL) {
   # Determine which axis to rotate
-  ndim <- length(dims)
   if (is.null(along)) {
-    along <- ndim # Default to last axis
+    along <- 2  # Default to last axis (columns for matrices)
+  }
+
+  # Validate along parameter
+  if (along < 1 || along > 2) {
+    stop("'along' must be between 1 and 2 (number of dimensions)")
+  }
+
+  # Normalize k for the dimension we're rotating
+  dims <- dim(x)
+  k <- k %% dims[along]
+  if (k == 0) {
+    return(x)
+  }
+
+  # Rotate along the specified axis
+  if (along == 1) {
+    # Rotate rows
+    n <- dims[1]
+    new_indices <- c((n - k + 1):n, 1:(n - k))
+    x[new_indices, , drop = FALSE]
+  } else {
+    # Rotate columns
+    n <- dims[2]
+    new_indices <- c((n - k + 1):n, 1:(n - k))
+    x[, new_indices, drop = FALSE]
+  }
+}
+
+#' @export
+apr_rotate.array <- function(x, k, along = NULL) {
+  # Determine which axis to rotate
+  dims <- dim(x)
+  ndim <- length(dims)
+
+  if (is.null(along)) {
+    along <- ndim  # Default to last axis
   }
 
   # Validate along parameter
@@ -194,7 +258,7 @@ apr_rotate <- function(x, k, along = NULL) {
       n <- dims[i]
       c((n - k + 1):n, 1:(n - k))
     } else {
-      TRUE # Select all elements along this dimension
+      TRUE  # Select all elements along this dimension
     }
   })
 

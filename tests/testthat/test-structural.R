@@ -366,3 +366,43 @@ test_that("apr_rotate validates along parameter", {
   expect_no_error(apr_rotate(m, 1, along = 1))
   expect_no_error(apr_rotate(m, 1, along = 2))
 })
+
+test_that("apr_reverse uses correct S3 method dispatch", {
+  # Vector should use default method
+  v <- 1:5
+  expect_equal(class(v), "integer")
+  result_v <- apr_reverse(v)
+  expect_equal(result_v, c(5, 4, 3, 2, 1))
+
+  # Matrix should use matrix method
+  m <- matrix(1:6, nrow = 2, ncol = 3)
+  expect_true("matrix" %in% class(m))
+  result_m <- apr_reverse(m)
+  expect_equal(dim(result_m), c(2, 3))
+
+  # Array should use array method
+  arr <- array(1:24, c(2, 3, 4))
+  expect_true("array" %in% class(arr))
+  result_arr <- apr_reverse(arr)
+  expect_equal(dim(result_arr), c(2, 3, 4))
+})
+
+test_that("apr_rotate uses correct S3 method dispatch", {
+  # Vector should use default method
+  v <- 1:5
+  expect_equal(class(v), "integer")
+  result_v <- apr_rotate(v, 1)
+  expect_equal(result_v, c(5, 1, 2, 3, 4))
+
+  # Matrix should use matrix method
+  m <- matrix(1:6, nrow = 2, ncol = 3)
+  expect_true("matrix" %in% class(m))
+  result_m <- apr_rotate(m, 1)
+  expect_equal(dim(result_m), c(2, 3))
+
+  # Array should use array method
+  arr <- array(1:24, c(2, 3, 4))
+  expect_true("array" %in% class(arr))
+  result_arr <- apr_rotate(arr, 1)
+  expect_equal(dim(result_arr), c(2, 3, 4))
+})
