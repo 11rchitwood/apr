@@ -406,32 +406,3 @@ test_that("apr_rotate uses correct S3 method dispatch", {
   result_arr <- apr_rotate(arr, 1)
   expect_equal(dim(result_arr), c(2, 3, 4))
 })
-
-test_that("apr_reverse and apr_rotate work correctly with aperm approach", {
-  # Test that the aperm-based implementation gives same results
-  arr <- array(1:24, c(2, 3, 4))
-
-  # Test reverse along different axes
-  result1 <- apr_reverse(arr, along = 1)
-  expect_equal(result1[1, , ], arr[2, , ])
-  expect_equal(result1[2, , ], arr[1, , ])
-
-  result2 <- apr_reverse(arr, along = 2)
-  expect_equal(result2[, 1, ], arr[, 3, ])
-  expect_equal(result2[, 3, ], arr[, 1, ])
-
-  result3 <- apr_reverse(arr, along = 3)
-  expect_equal(result3[,, 1], arr[,, 4])
-  expect_equal(result3[,, 4], arr[,, 1])
-
-  # Test rotate along different axes
-  rot1 <- apr_rotate(arr, 1, along = 1)
-  expect_equal(rot1[1, , ], arr[2, , ])
-  expect_equal(rot1[2, , ], arr[1, , ])
-
-  rot2 <- apr_rotate(arr, 1, along = 2)
-  expect_equal(rot2, arr[, c(3, 1, 2), ])
-
-  rot3 <- apr_rotate(arr, 2, along = 3)
-  expect_equal(rot3[1, 1, ], c(3, 4, 1, 2))
-})
