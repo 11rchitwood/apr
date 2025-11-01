@@ -148,6 +148,10 @@ test_that("apr_reverse works with 2D matrices", {
   expected <- matrix(c(3, 2, 1, 6, 5, 4), nrow = 2, ncol = 3, byrow = TRUE)
   expect_equal(apr_reverse(m), expected)
 
+  # Basic matrix - reverses each column
+  expected <- matrix(c(4, 5, 6, 1, 2, 3), nrow = 2, ncol = 3, byrow = TRUE)
+  expect_equal(apr_reverse(m, along = 2), expected)
+
   # Square matrix
   sq <- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
   result <- apr_reverse(sq)
