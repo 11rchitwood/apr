@@ -37,127 +37,98 @@ monadic or dyadic form in APL.*
 
 ### Shape
 
-[Source](R/shape.R) \| [Tests](tests/testthat/test-shape.R)
-
-- ⍴ (`apr_shape`, `apr_reshape`)
-- ⍳ (`apr_iota`, `apr_index_of`)
-- ↑ (`apr_first`, `apr_take`)
-- ↓ (—, `apr_drop`)
+- ⍴ (`apr_shape()`, `apr_reshape()`)
+- ⍳ (`apr_iota()`, `apr_index_of()`)
+- ↑ (`apr_first()`, `apr_take()`)
+- ↓ (—, `apr_drop()`)
 
 ### Structural
 
-[Source](R/structural.R) \| [Tests](tests/testthat/test-structural.R)
-
-- ⍉ (`apr_transpose`, `apr_transpose_axes`)
-- ⌽ (`apr_reverse`, `apr_rotate`)
-- ⊖ (`apr_reverse_first`, `apr_rotate_first`)
-- , (`apr_ravel`, `apr_catenate`)
-- ⍪ (`apr_table`, `apr_catenate_first`)
+- ⍉ (`apr_transpose()`, `apr_transpose_axes()`)
+- ⌽ (`apr_reverse()`, `apr_rotate()`)
+- ⊖ (`apr_reverse_first()`, `apr_rotate_first()`)
+- , (`apr_ravel()`, `apr_catenate()`)
+- ⍪ (`apr_table()`, `apr_catenate_first()`)
 
 ### Functional
 
-[Source](R/functional.R) \| [Tests](tests/testthat/test-functional.R)
-
-- / (—, `apr_reduce`)
-- ⌿ (—, `apr_reduce_first`)
-- \\ (`apr_expand`, `apr_scan`)
-- ⍀ (`apr_expand_first`, `apr_scan_first`)
+- / (—, `apr_reduce()`)
+- ⌿ (—, `apr_reduce_first()`)
+- \\ (`apr_expand()`, `apr_scan()`)
+- ⍀ (`apr_expand_first()`, `apr_scan_first()`)
 
 ### Set Operations
 
-[Source](R/set.R) \| [Tests](tests/testthat/test-set.R)
-
-- ∊ (`apr_enlist`, `apr_membership`)
-- ∩ (—, `apr_intersection`)
-- ∪ (`apr_unique`, `apr_union`)
+- ∊ (`apr_enlist()`, `apr_membership()`)
+- ∩ (—, `apr_intersection()`)
+- ∪ (`apr_unique()`, `apr_union()`)
 
 ### Sorting
 
-[Source](R/sorting.R) \| [Tests](tests/testthat/test-sorting.R)
-
-- ⍋ (`apr_grade_up`, `apr_bins_up`)
-- ⍒ (`apr_grade_down`, `apr_bins_down`)
+- ⍋ (`apr_grade_up()`, `apr_bins_up()`)
+- ⍒ (`apr_grade_down()`, `apr_bins_down()`)
 
 ### Nesting
 
-[Source](R/nesting.R) \| [Tests](tests/testthat/test-nesting.R)
-
-- ⊂ (`apr_enclose`, `apr_partition`)
-- ⊃ (`apr_disclose`, `apr_pick`)
-- ≡ (`apr_depth`, `apr_match`)
-- ≢ (`apr_tally`, `apr_not_match`)
+- ⊂ (`apr_enclose()`, `apr_partition()`)
+- ⊃ (`apr_disclose()`, `apr_pick()`)
+- ≡ (`apr_depth()`, `apr_match()`)
+- ≢ (`apr_tally()`, `apr_not_match()`)
 
 ### Encoding
 
-[Source](R/encoding.R) \| [Tests](tests/testthat/test-encoding.R)
-
-- ⊥ (—, `apr_decode`)
-- ⊤ (—, `apr_encode`)
+- ⊥ (—, `apr_decode()`)
+- ⊤ (—, `apr_encode()`)
 
 ### Arithmetic
 
-[Source](R/arithmetic.R) \| [Tests](tests/testthat/test-arithmetic.R)
-
-- - (`apr_conjugate`, `apr_plus`)
-- − (`apr_negate`, `apr_minus`)
-- × (`apr_signum`, `apr_times`)
-- ÷ (`apr_reciprocal`, `apr_divide`)
-- \| (`apr_abs`, `apr_mod`)
-- - (`apr_exp`, `apr_power`)
+- - (`apr_conjugate()`, `apr_plus()`)
+- − (`apr_negate()`, `apr_minus()`)
+- × (`apr_signum()`, `apr_times()`)
+- ÷ (`apr_reciprocal()`, `apr_divide()`)
+- \| (`apr_abs()`, `apr_mod()`)
+- - (`apr_exp()`, `apr_power()`)
 
 ### Mathematical
 
-[Source](R/mathematical.R) \|
-[Tests](tests/testthat/test-mathematical.R)
-
-- ⌈ (`apr_ceiling`, `apr_max`)
-- ⌊ (`apr_floor`, `apr_min`)
-- ○ (`apr_pi_times`, `apr_circular`)
-- ⍟ (`apr_ln`, `apr_log`)
-- ? (`apr_roll`, `apr_deal`)
+- ⌈ (`apr_ceiling()`, `apr_max()`)
+- ⌊ (`apr_floor()`, `apr_min()`)
+- ○ (`apr_pi_times()`, `apr_circular()`)
+- ⍟ (`apr_ln()`, `apr_log()`)
+- ? (`apr_roll()`, `apr_deal()`)
 
 ### Matrix
 
-[Source](R/matrix.R) \| [Tests](tests/testthat/test-matrix.R)
-
-- ⌹ (`apr_matrix_inverse`, `apr_matrix_divide`)
+- ⌹ (`apr_matrix_inverse()`, `apr_matrix_divide()`)
 
 ### Comparison
 
-[Source](R/comparison.R) \| [Tests](tests/testthat/test-comparison.R)
+- \< (—, `apr_less()`)
 
-- \< (—, `apr_less`)
+- ≤ (—, `apr_less_equal()`)
 
-- ≤ (—, `apr_less_equal`)
+- = (—, `apr_equal()`)
 
-- = (—, `apr_equal`)
+- ≥ (—, `apr_greater_equal()`)
 
-- ≥ (—, `apr_greater_equal`)
+- > (—, `apr_greater()`)
 
-- > (—, `apr_greater`)
-
-- ≠ (—, `apr_not_equal`)
+- ≠ (—, `apr_not_equal()`)
 
 ### Logic
 
-[Source](R/logic.R) \| [Tests](tests/testthat/test-logic.R)
-
-- ∧ (—, `apr_lcm`)
-- ∨ (—, `apr_gcd`)
-- ⍱ (—, `apr_nand`)
-- ⍲ (—, `apr_nor`)
+- ∧ (—, `apr_lcm()`)
+- ∨ (—, `apr_gcd()`)
+- ⍱ (—, `apr_nand()`)
+- ⍲ (—, `apr_nor()`)
 
 ### Selection
 
-[Source](R/selection.R) \| [Tests](tests/testthat/test-selection.R)
-
-- ⊣ (`apr_identity`, `apr_left`)
-- ⊢ (`apr_identity`, `apr_right`)
-- ⍸ (`apr_where`, `apr_interval_index`)
+- ⊣ (`apr_identity()`, `apr_left()`)
+- ⊢ (`apr_identity()`, `apr_right()`)
+- ⍸ (`apr_where()`, `apr_interval_index()`)
 
 ### Formatting
 
-[Source](R/formatting.R) \| [Tests](tests/testthat/test-formatting.R)
-
-- ⍎ (`apr_execute`, —)
-- ⍕ (`apr_format`, `apr_format_precision`)
+- ⍎ (`apr_execute()`, —)
+- ⍕ (`apr_format()`, `apr_format_precision()`)
