@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/11rchitwood/apr/graph/badge.svg)](https://app.codecov.io/gh/11rchitwood/apr)
 <!-- badges: end -->
 
-The goal of apr is to bring the goodness of [APL](https://en.wikipedia.org/wiki/APL_(programming_language)) to R. R provides multidimensional arrays out of the box, but many of the table stakes for array programming are missing. This package seeks to fill that gap.
+The goal of apr is to bring the goodness of [Iversonian array languages](https://github.com/codereport/array-language-comparisons) to R. R provides multidimensional arrays out of the box, but many of the table stakes for array programming are missing. This package seeks to fill that gap while still adhering to R idioms and conventions.
 
 ## Installation
 
