@@ -14,11 +14,11 @@ status](https://www.r-pkg.org/badges/version/apr)](https://CRAN.R-project.org/pa
 coverage](https://codecov.io/gh/11rchitwood/apr/graph/badge.svg)](https://app.codecov.io/gh/11rchitwood/apr)
 <!-- badges: end -->
 
-The goal of apr is to bring the goodness of
-[APL](https://en.wikipedia.org/wiki/APL_(programming_language)) to R. R
-provides multidimensional arrays out of the box, but many of the table
-stakes for array programming are missing. This package seeks to fill
-that gap.
+The goal of apr is to bring the goodness of [Iversonian array
+languages](https://github.com/codereport/array-language-comparisons) to
+R. R provides multidimensional arrays out of the box, but many of the
+table stakes for array programming are missing. This package seeks to
+fill that gap while still adhering to R idioms and conventions.
 
 ## Installation
 
@@ -28,107 +28,49 @@ You can install the development version of apr like so:
 pak::pak("11rchitwood/apr")
 ```
 
-## APL Glyph Implementation Plan
+## Functions
 
-The following sections group APL glyphs into categories and then list
-their corresponding monadic and dyadic function names in the `apr`
-package. *Note: “—” indicates that the glyph does not have a standard
-monadic or dyadic form in APL.*
+These are taken from [Uiua](https://uiua.org/) because it offers a 1:1
+correspondence of glyphs and names.
 
-### Shape
+### Monadic Array
 
-- ⍴ (`apr_shape()`, `apr_reshape()`)
-- ⍳ (`apr_iota()`, `apr_index_of()`)
-- ↑ (`apr_first()`, `apr_take()`)
-- ↓ (—, `apr_drop()`)
+Operate on a single array
 
-### Structural
+- `apr_length()` (`length()`)
+- `apr_shape()` (`dim()`)
+- `apr_range()` (`seq_len()`)
+- `apr_first()` (`head()`)
+- `apr_last()` (`tail()`)
+- `apr_reverse()` (`rev()`)
+- `apr_deshape()` (`as.vector()`)
+- `apr_fix()` (`dim<-`)
+- `apr_transpose()` (`t()`)
+- `apr_sort()` (`sort()`)
+- `apr_rise()`
+- `apr_fall()`
+- `apr_where()` (`which()`)
+- `apr_deduplicate()` (`unique()`)
+- `apr_classify()`
+- `apr_occurrences()`
+- `apr_unique()`
 
-- ⍉ (`apr_transpose()`, `apr_transpose_axes()`)
-- ⌽ (`apr_reverse()`, `apr_rotate()`)
-- ⊖ (`apr_reverse_first()`, `apr_rotate_first()`)
-- , (`apr_ravel()`, `apr_catenate()`)
-- ⍪ (`apr_table()`, `apr_catenate_first()`)
+### Dyadic Array
 
-### Functional
+Operate on two arrays
 
-- / (—, `apr_reduce()`)
-- ⌿ (—, `apr_reduce_first()`)
-- \\ (`apr_expand()`, `apr_scan()`)
-- ⍀ (`apr_expand_first()`, `apr_scan_first()`)
-
-### Set Operations
-
-- ∊ (`apr_enlist()`, `apr_membership()`)
-- ∩ (—, `apr_intersection()`)
-- ∪ (`apr_unique()`, `apr_union()`)
-
-### Sorting
-
-- ⍋ (`apr_grade_up()`, `apr_bins_up()`)
-- ⍒ (`apr_grade_down()`, `apr_bins_down()`)
-
-### Nesting
-
-- ⊂ (`apr_enclose()`, `apr_partition()`)
-- ⊃ (`apr_disclose()`, `apr_pick()`)
-- ≡ (`apr_depth()`, `apr_match()`)
-- ≢ (`apr_tally()`, `apr_not_match()`)
-
-### Encoding
-
-- ⊥ (—, `apr_decode()`)
-- ⊤ (—, `apr_encode()`)
-
-### Arithmetic
-
-- - (`apr_conjugate()`, `apr_plus()`)
-- − (`apr_negate()`, `apr_minus()`)
-- × (`apr_signum()`, `apr_times()`)
-- ÷ (`apr_reciprocal()`, `apr_divide()`)
-- \| (`apr_abs()`, `apr_mod()`)
-- - (`apr_exp()`, `apr_power()`)
-
-### Mathematical
-
-- ⌈ (`apr_ceiling()`, `apr_max()`)
-- ⌊ (`apr_floor()`, `apr_min()`)
-- ○ (`apr_pi_times()`, `apr_circular()`)
-- ⍟ (`apr_ln()`, `apr_log()`)
-- ? (`apr_roll()`, `apr_deal()`)
-
-### Matrix
-
-- ⌹ (`apr_matrix_inverse()`, `apr_matrix_divide()`)
-
-### Comparison
-
-- \< (—, `apr_less()`)
-
-- ≤ (—, `apr_less_equal()`)
-
-- = (—, `apr_equal()`)
-
-- ≥ (—, `apr_greater_equal()`)
-
-- > (—, `apr_greater()`)
-
-- ≠ (—, `apr_not_equal()`)
-
-### Logic
-
-- ∧ (—, `apr_lcm()`)
-- ∨ (—, `apr_gcd()`)
-- ⍱ (—, `apr_nand()`)
-- ⍲ (—, `apr_nor()`)
-
-### Selection
-
-- ⊣ (`apr_identity()`, `apr_left()`)
-- ⊢ (`apr_identity()`, `apr_right()`)
-- ⍸ (`apr_where()`, `apr_interval_index()`)
-
-### Formatting
-
-- ⍎ (`apr_execute()`, —)
-- ⍕ (`apr_format()`, `apr_format_precision()`)
+- `apr_match()` (`all.equal()`)
+- `apr_couple()` (`rbind()`/`cbind()`)
+- `apr_join()` (`c()`)
+- `apr_select()` (bracket indexing)
+- `apr_pick()` (bracket indexing)
+- `apr_reshape()` (`dim<-`)
+- `apr_take()` (bracket indexing)
+- `apr_drop()` (negative bracket indexing)
+- `apr_rotate()`
+- `apr_orient()` (`aperm()`)
+- `apr_keep()` (indexing)
+- `apr_find()` (`which()`)
+- `apr_mask()` (`which()`)
+- `apr_memberof()` (`%in%`)
+- `apr_indexin()` (`which()`)
