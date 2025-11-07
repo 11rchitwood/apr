@@ -30,8 +30,10 @@ pak::pak("11rchitwood/apr")
 
 ## Functions
 
-These are taken from [Uiua](https://uiua.org/) because it offers a 1:1
-correspondence of glyphs and names.
+I chose to use the function names from [Uiua](https://uiua.org/)
+because, unlike other Uiua does not have monadic and dyadic versions of
+each glyph. Note: the corresponding R functions are listed in
+parentheses.
 
 ### Monadic Array
 
