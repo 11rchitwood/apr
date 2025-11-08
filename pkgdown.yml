@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-11-08T12:55Z
+last_built: 2025-11-08T13:01Z
 urls:
   reference: https://11rchitwood.github.io/apr/reference
   article: https://11rchitwood.github.io/apr/articles

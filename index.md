@@ -52,5 +52,5 @@ not have monadic and dyadic versions of each glyph.
 | `apr_keep()`                                                                      | indexing                                                                                      | dyadic  |
 | `apr_find()`                                                                      | [`which()`](https://rdrr.io/r/base/which.html)                                                | dyadic  |
 | `apr_mask()`                                                                      | [`which()`](https://rdrr.io/r/base/which.html)                                                | dyadic  |
-| `apr_memberof()`                                                                  | `%in%`                                                                                        | dyadic  |
-| `apr_indexin()`                                                                   | [`which()`](https://rdrr.io/r/base/which.html)                                                | dyadic  |
+| `apr_member_of()`                                                                 | `%in%`                                                                                        | dyadic  |
+| `apr_index_in()`                                                                  | [`which()`](https://rdrr.io/r/base/which.html)                                                | dyadic  |
