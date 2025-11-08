@@ -34,46 +34,39 @@ pak::pak("11rchitwood/apr")
 
 ## Functions
 
-I chose to use the function names from [Uiua](https://uiua.org/) because, unlike other Uiua does not have monadic and dyadic versions of each glyph. Note: the corresponding R functions are listed in parentheses.
+I chose to use the function names from [Uiua](https://uiua.org/) because, unlike other Iversonian array programming languages, Uiua does not have monadic and dyadic versions of each glyph.
 
-### Monadic Array
-
-Operate on a single array
-
-- `apr_length()` (`length()`)
-- `apr_shape()` (`dim()`)
-- `apr_range()` (`seq_len()`)
-- `apr_first()` (`head()`)
-- `apr_last()` (`tail()`)
-- `apr_reverse()` (`rev()`)
-- `apr_deshape()` (`as.vector()`)
-- `apr_fix()` (`dim<-`)
-- `apr_transpose()` (`t()`)
-- `apr_sort()` (`sort()`)
-- `apr_rise()`
-- `apr_fall()`
-- `apr_where()` (`which()`)
-- `apr_deduplicate()` (`unique()`)
-- `apr_classify()` 
-- `apr_occurrences()`
-- `apr_unique()`
-
-### Dyadic Array
-
-Operate on two arrays
-
-- `apr_match()` (`all.equal()`)
-- `apr_couple()` (`rbind()`/`cbind()`)
-- `apr_join()` (`c()`)
-- `apr_select()` (bracket indexing)
-- `apr_pick()` (bracket indexing)
-- `apr_reshape()` (`dim<-`)
-- `apr_take()` (bracket indexing)
-- `apr_drop()` (negative bracket indexing)
-- `apr_rotate()`
-- `apr_orient()` (`aperm()`)
-- `apr_keep()` (indexing)
-- `apr_find()` (`which()`)
-- `apr_mask()` (`which()`)
-- `apr_memberof()` (`%in%`)
-- `apr_indexin()` (`which()`)
+| apr | base | arity |
+|-----|------|-------|
+| `apr_length()` | `length()` | monadic |
+| `apr_shape()` | `dim()` | monadic |
+| `apr_range()` | `seq_len()` | monadic |
+| `apr_first()` | `head()` | monadic |
+| `apr_last()` | `tail()` | monadic |
+| `apr_reverse()` | `rev()` | monadic |
+| `apr_deshape()` | `as.vector()` | monadic |
+| `apr_fix()` | `dim<-` | monadic |
+| `apr_transpose()` | `t()` | monadic |
+| `apr_sort()` | `sort()` | monadic |
+| `apr_rise()` | | monadic |
+| `apr_fall()` | | monadic |
+| `apr_where()` | `which()` | monadic |
+| `apr_deduplicate()` | `unique()` | monadic |
+| `apr_classify()` | | monadic |
+| `apr_occurrences()` | | monadic |
+| `apr_unique()` | | monadic |
+| `apr_match()` | `all.equal()` | dyadic |
+| `apr_couple()` | `rbind()`/`cbind()` | dyadic |
+| `apr_join()` | `c()` | dyadic |
+| `apr_select()` | bracket indexing | dyadic |
+| `apr_pick()` | bracket indexing | dyadic |
+| `apr_reshape()` | `dim<-` | dyadic |
+| `apr_take()` | bracket indexing | dyadic |
+| `apr_drop()` | negative bracket indexing | dyadic |
+| `apr_rotate()` | | dyadic |
+| `apr_orient()` | `aperm()` | dyadic |
+| `apr_keep()` | indexing | dyadic |
+| `apr_find()` | `which()` | dyadic |
+| `apr_mask()` | `which()` | dyadic |
+| `apr_memberof()` | `%in%` | dyadic |
+| `apr_indexin()` | `which()` | dyadic |
