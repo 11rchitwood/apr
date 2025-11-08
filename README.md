@@ -66,5 +66,5 @@ not have monadic and dyadic versions of each glyph.
 | `apr_keep()`        | indexing                  | dyadic  |
 | `apr_find()`        | `which()`                 | dyadic  |
 | `apr_mask()`        | `which()`                 | dyadic  |
-| `apr_memberof()`    | `%in%`                    | dyadic  |
-| `apr_indexin()`     | `which()`                 | dyadic  |
+| `apr_member_of()`   | `%in%`                    | dyadic  |
+| `apr_index_in()`    | `which()`                 | dyadic  |
