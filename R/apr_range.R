@@ -9,9 +9,9 @@
 #' @export
 #'
 #' @examples
-#' apr_iota(5)  # Returns 1:5
-#' apr_iota(c(3, 4))  # Returns a 3x4 array with index combinations
-apr_iota <- function(x) {
+#' apr_range(5)  # Returns 1:5
+#' apr_range(c(3, 4))  # Returns a 3x4 array with index combinations
+apr_range <- function(x) {
   if (length(x) == 1) {
     # Simple case: scalar input
     seq_len(x)
