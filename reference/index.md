@@ -2,6 +2,8 @@
 
 ## All functions
 
+- [`apr_first()`](https://11rchitwood.github.io/apr/reference/apr_first.md)
+  : Get first element(s) along the first axis
 - [`apr_index_of()`](https://11rchitwood.github.io/apr/reference/apr_index_of.md)
   : Find index of first occurrence Finds the index of the first
   occurrence of each element in the right argument within the left

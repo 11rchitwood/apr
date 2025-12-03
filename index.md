@@ -25,7 +25,7 @@ not have monadic and dyadic versions of each glyph.
 | `apr_length()`                                                                    | [`length()`](https://rdrr.io/r/base/length.html)                                              | monadic |
 | [`apr_shape()`](https://11rchitwood.github.io/apr/reference/apr_shape.md)         | [`dim()`](https://rdrr.io/r/base/dim.html)                                                    | monadic |
 | [`apr_range()`](https://11rchitwood.github.io/apr/reference/apr_range.md)         | [`seq_len()`](https://rdrr.io/r/base/seq.html)                                                | monadic |
-| `apr_first()`                                                                     | [`head()`](https://rdrr.io/r/utils/head.html)                                                 | monadic |
+| [`apr_first()`](https://11rchitwood.github.io/apr/reference/apr_first.md)         | [`head()`](https://rdrr.io/r/utils/head.html)                                                 | monadic |
 | `apr_last()`                                                                      | [`tail()`](https://rdrr.io/r/utils/head.html)                                                 | monadic |
 | [`apr_reverse()`](https://11rchitwood.github.io/apr/reference/apr_reverse.md)     | [`rev()`](https://rdrr.io/r/base/rev.html)                                                    | monadic |
 | `apr_deshape()`                                                                   | [`as.vector()`](https://rdrr.io/r/base/vector.html)                                           | monadic |
