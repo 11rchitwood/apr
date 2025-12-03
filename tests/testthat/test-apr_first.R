@@ -90,7 +90,7 @@ test_that("apr_first uses correct S3 method dispatch", {
   m <- matrix(1:6, nrow = 2, ncol = 3)
   expect_true("matrix" %in% class(m))
   result_m <- apr_first(m)
-  expect_equal(result_m, c(1, 4))
+  expect_equal(result_m, c(1, 3, 5))
   expect_false(is.matrix(result_m))
 
   # Array should use array method
