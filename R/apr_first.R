@@ -50,7 +50,7 @@ apr_first.array <- function(x) {
   }
 
   # Create index list: first element of first dimension, all others
-  indices <- c(list(1L), rep(alist(,), ndim - 1))
+  indices <- c(list(1L), replicate(ndim - 1, quote(expr = ), simplify = FALSE))
   result <- do.call(`[`, c(list(x), indices, drop = FALSE))
 
   # Drop the first dimension
