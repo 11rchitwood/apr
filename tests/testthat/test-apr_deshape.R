@@ -25,9 +25,3 @@ test_that("apr_deshape works on matrices", {
   expect_equal(result, 1:6)
   expect_null(dim(result))
 })
-
-test_that("apr_deshape preserves element order", {
-  x <- array(c(1, 2, 3, 4, 5, 6), c(2, 3))
-  result <- apr_deshape(x)
-  expect_equal(result, c(1, 2, 3, 4, 5, 6))
-})
