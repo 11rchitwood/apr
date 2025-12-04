@@ -11,8 +11,8 @@ apr_first(x)
 }
 \value{
 For a vector, returns the first element (scalar). For arrays with more
-  than one dimension, returns the first slice along the first axis with dimensions
-  reduced by one.
+than one dimension, returns the first slice along the first axis with dimensions
+reduced by one.
 }
 \description{
 Returns the first element along the first axis of an array. For a vector, this
