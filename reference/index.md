@@ -2,6 +2,8 @@
 
 ## All functions
 
+- [`apr_deshape()`](https://11rchitwood.github.io/apr/reference/apr_deshape.md)
+  : Remove the shape of an array
 - [`apr_first()`](https://11rchitwood.github.io/apr/reference/apr_first.md)
   : Get first element(s) along the first axis
 - [`apr_index_of()`](https://11rchitwood.github.io/apr/reference/apr_index_of.md)
