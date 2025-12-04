@@ -8,6 +8,8 @@
   : Find index of first occurrence Finds the index of the first
   occurrence of each element in the right argument within the left
   argument.
+- [`apr_last()`](https://11rchitwood.github.io/apr/reference/apr_last.md)
+  : Get last element(s) along the first axis
 - [`apr_range()`](https://11rchitwood.github.io/apr/reference/apr_range.md)
   : Generate index vector or array
 - [`apr_reshape()`](https://11rchitwood.github.io/apr/reference/apr_reshape.md)
